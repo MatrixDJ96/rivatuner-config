@@ -1,0 +1,180 @@
+[Master]
+Implementation=2
+FontFace=Unispace
+FontHeight=-9
+FontWeight=400
+ZoomRatio=2
+[Settings]
+Name=MatrixDJ96 - Full
+EnvVars=
+RefreshPeriod=1000
+EmbeddedImage=
+PingAddr=
+[General]
+Sources=15
+Tables=1
+Layers=1
+[Source0]
+Name=CPU clock
+Units=MHz
+Format=
+Formula=
+Provider=HAL
+ID=CPU clock
+[Source1]
+Name=CPU usage
+Units=%
+Format=
+Formula=
+Provider=HAL
+ID=CPU usage
+[Source2]
+Name=CPU temperature
+Units=°C
+Format=
+Formula=
+Provider=HAL
+ID=CPU temperature
+[Source3]
+Name=CPU power
+Units=W
+Format=
+Formula=
+Provider=HAL
+ID=CPU power
+[Source4]
+Name=Total RAM
+Units=GB
+Format=
+Formula=x/1024
+Provider=HAL
+ID=Total RAM
+[Source5]
+Name=RAM usage percent
+Units=%
+Format=
+Formula=
+Provider=HAL
+ID=RAM usage percent
+[Source6]
+Name=RAM usage
+Units=GB
+Format=%.2f
+Formula=x/1024
+Provider=HAL
+ID=RAM usage
+[Source7]
+Name=GPU1 clock
+Units=MHz
+Format=
+Formula=
+Provider=HAL
+ID=GPU1 clock
+[Source8]
+Name=GPU1 usage
+Units=%
+Format=
+Formula=
+Provider=HAL
+ID=GPU1 usage
+[Source9]
+Name=GPU1 temperature
+Units=°C
+Format=
+Formula=
+Provider=HAL
+ID=GPU1 temperature 2
+[Source10]
+Name=GPU1 power
+Units=W
+Format=
+Formula=
+Provider=HAL
+ID=GPU1 power
+[Source11]
+Name=GPU1 memory clock
+Units=MHz
+Format=
+Formula=
+Provider=HAL
+ID=GPU1 memory clock
+[Source12]
+Name=GPU1 total memory
+Units=GB
+Format=
+Formula=x/1024
+Provider=HAL
+ID=GPU1 total memory
+[Source13]
+Name=GPU1 memory usage percent
+Units=%
+Format=
+Formula=
+Provider=HAL
+ID=GPU1 memory usage percent
+[Source14]
+Name=GPU1 memory usage
+Units=GB
+Format=%.2f
+Formula=x/1024
+Provider=HAL
+ID=GPU1 memory usage
+[Table0]
+Name=Full
+ValueAlignment=5
+UnitsSize=100
+UnitsAlignment=0
+Lines=7
+Line0Name="<APP> "
+Line0Color=FF80C0
+Line0Cells=3
+Line0Cell0Text=<FR> FPS
+Line0Cell0Color=FFFFFF
+Line0Cell1Text=
+Line0Cell2Text=" %Time24%"
+Line0Cell2Color=FFFFFF
+Line1Name="%CPUShort% "
+Line1Color=80FF
+Line1Cells=3
+Line1Cell0Text=%CPU temperature% <S=80>°C<S>
+Line1Cell1Text=" %CPU usage% <S=80>%<S>"
+Line1Cell2Text=" %CPU clock% <S=80>MHz<S>"
+Line2Name=MEMORY
+Line2Color=7ABEFF
+Line2Cells=3
+Line2Cell0Text=
+Line2Cell1Text=" %RAM usage percent% <S=80>%<S>"
+Line2Cell2Text=" %RAM usage% <S=80>GB<S>"
+Line3Name=POWER
+Line3Color=7ABEFF
+Line3Cells=3
+Line3Cell0Text=
+Line3Cell1Text=
+Line3Cell2Text=" %CPU power% <S=80>W<S>"
+Line4Name="%GPU% "
+Line4Color=FF00
+Line4Cells=3
+Line4Cell0Text=%GPU1 temperature% <S=80>°C<S>
+Line4Cell1Text=" %GPU1 usage% <S=80>%<S>"
+Line4Cell2Text=" %GPU1 clock% <S=80>MHz<S>"
+Line5Name=MEMORY
+Line5Color=A8FEA8
+Line5Cells=3
+Line5Cell0Text=
+Line5Cell1Text=" %GPU1 memory usage percent% <S=80>%<S>"
+Line5Cell2Text=" %GPU1 memory usage% <S=80>GB<S>"
+Line6Name=POWER
+Line6Color=A8FEA8
+Line6Cells=3
+Line6Cell0Text=
+Line6Cell1Text=
+Line6Cell2Text=" %GPU1 power% <S=80>W<S>"
+[Layer0]
+Name=Overlay
+Text=<TT=Full>
+PositionX=0
+PositionY=0
+ExtentX=0
+ExtentY=0
+ExtentOrigin=0
+FixedAlignment=1
