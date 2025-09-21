@@ -5,126 +5,176 @@ FontHeight=-9
 FontWeight=400
 ZoomRatio=2
 [Settings]
-Name=MatrixDJ96 - Normal
+Name=MatrixDJ96 - Full
 EnvVars=
 RefreshPeriod=1000
+LockUserSettings=0
 EmbeddedImage=
 PingAddr=
 [General]
-Sources=15
+Sources=22
 Tables=1
-Layers=1
+Layers=21
 [Source0]
+Name=IsGpuHotspotAvailable
+Units=
+Format=
+Formula=(x != 255)
+Provider=HAL
+ID=GPU1 temperature 2
+[Source1]
+Name=IsPresentMonDataAvailable
+Units=
+Format=
+Formula=validate(x)
+Provider=PresentMon
+ID=msBetweenPresents
+[Source2]
+Name=msBetweenPresents
+Units=ms
+Format=%.1f
+Formula=
+Provider=PresentMon
+ID=msBetweenPresents
+[Source3]
 Name=CPU clock
 Units=MHz
 Format=
 Formula=
 Provider=HAL
 ID=CPU clock
-[Source1]
+[Source4]
 Name=CPU usage
 Units=%
 Format=
 Formula=
 Provider=HAL
 ID=CPU usage
-[Source2]
+[Source5]
 Name=CPU temperature
 Units=°C
 Format=
 Formula=
 Provider=HAL
 ID=CPU temperature
-[Source3]
+[Source6]
 Name=CPU power
 Units=W
 Format=
 Formula=
 Provider=HAL
 ID=CPU power
-[Source4]
+[Source7]
 Name=Total RAM
 Units=GB
 Format=
 Formula=x/1024
 Provider=HAL
 ID=Total RAM
-[Source5]
+[Source8]
 Name=RAM usage percent
 Units=%
 Format=
 Formula=
 Provider=HAL
 ID=RAM usage percent
-[Source6]
+[Source9]
 Name=RAM usage
 Units=GB
 Format=%.2f
 Formula=x/1024
 Provider=HAL
 ID=RAM usage
-[Source7]
+[Source10]
 Name=GPU1 clock
 Units=MHz
 Format=
 Formula=
 Provider=HAL
 ID=GPU1 clock
-[Source8]
+[Source11]
 Name=GPU1 usage
 Units=%
 Format=
 Formula=
 Provider=HAL
 ID=GPU1 usage
-[Source9]
+[Source12]
 Name=GPU1 temperature
 Units=°C
 Format=
 Formula=
 Provider=HAL
+ID=GPU1 temperature
+[Source13]
+Name=GPU1 temperature 2
+Units=°C
+Format=
+Formula=
+Provider=HAL
 ID=GPU1 temperature 2
-[Source10]
+[Source14]
 Name=GPU1 power
 Units=W
 Format=
 Formula=
 Provider=HAL
 ID=GPU1 power
-[Source11]
+[Source15]
 Name=GPU1 memory clock
 Units=MHz
 Format=
 Formula=
 Provider=HAL
 ID=GPU1 memory clock
-[Source12]
+[Source16]
 Name=GPU1 total memory
 Units=GB
 Format=
 Formula=x/1024
 Provider=HAL
 ID=GPU1 total memory
-[Source13]
+[Source17]
 Name=GPU1 memory usage percent
 Units=%
 Format=
 Formula=
 Provider=HAL
 ID=GPU1 memory usage percent
-[Source14]
+[Source18]
 Name=GPU1 memory usage
 Units=GB
 Format=%.2f
 Formula=x/1024
 Provider=HAL
 ID=GPU1 memory usage
+[Source19]
+Name=Display1 refresh rate
+Units=Hz
+Format=
+Formula=
+Provider=HAL
+ID=Display1 refresh rate
+[Source20]
+Name=Framerate 1% Low
+Units=FPS
+Format=
+Formula=1000/percentile(msBetweenPresents,99)
+Provider=HAL
+ID=Stub
+[Source21]
+Name=Framerate 0.1% Low
+Units=FPS
+Format=
+Formula=1000/percentile(msBetweenPresents,99.9)
+Provider=HAL
+ID=FrameratePresented0Dot1PLow
 [Table0]
 Name=Normal
 ValueAlignment=5
 UnitsSize=100
 UnitsAlignment=0
-Lines=3
+Lines=7
 Line0Name="<APP> "
 Line0Color=FF80C0
 Line0Cells=3
@@ -139,18 +189,231 @@ Line1Cells=3
 Line1Cell0Text=%CPU temperature% <S=80>°C<S>
 Line1Cell1Text=" %CPU usage% <S=80>%<S>"
 Line1Cell2Text=" %CPU clock% <S=80>MHz<S>"
-Line2Name="%GPU% "
-Line2Color=FF00
+Line2Name=MEMORY
+Line2Color=7ABEFF
 Line2Cells=3
-Line2Cell0Text=%GPU1 temperature% <S=80>°C<S>
-Line2Cell1Text=" %GPU1 usage% <S=80>%<S>"
-Line2Cell2Text=" %GPU1 clock% <S=80>MHz<S>"
+Line2Cell0Text=
+Line2Cell1Text=" %RAM usage percent% <S=80>%<S>"
+Line2Cell2Text=" %RAM usage% <S=80>GB<S>"
+Line3Name=POWER
+Line3Color=7ABEFF
+Line3Cells=3
+Line3Cell0Text=
+Line3Cell1Text=
+Line3Cell2Text=" %CPU power% <S=80>W<S>"
+Line4Name="%GPU% "
+Line4Color=FF00
+Line4Cells=3
+Line4Cell0Text=%GPU1 temperature% <S=80>°C<S>
+Line4Cell1Text=" %GPU1 usage% <S=80>%<S>"
+Line4Cell2Text=" %GPU1 clock% <S=80>MHz<S>"
+Line5Name=MEMORY
+Line5Color=A8FEA8
+Line5Cells=3
+Line5Cell0Text=
+Line5Cell1Text=" %GPU1 memory usage percent% <S=80>%<S>"
+Line5Cell2Text=" %GPU1 memory usage% <S=80>GB<S>"
+Line6Name=POWER
+Line6Color=A8FEA8
+Line6Cells=3
+Line6Cell0Text=
+Line6Cell1Text=
+Line6Cell2Text=" %GPU1 power% <S=80>W<S>"
 [Layer0]
-Name=Overlay
-Text=<TT=Normal>
+Name=API
+Text=<API>
 PositionX=0
 PositionY=0
-ExtentX=0
-ExtentY=0
-ExtentOrigin=0
+ExtentX=-14
+ExtentY=-1
+ExtentOrigin=3
+FixedAlignment=1
+TextColor=FF80C0
+[Layer1]
+Name=FPS
+Text=<FR><S=80> FPS<S>
+PositionX=-14
+PositionY=0
+ExtentX=-12
+ExtentY=-1
+ExtentOrigin=4
+FixedAlignment=1
+TextColor=FFFFFF
+[Layer2]
+Name=TIME
+Text=%Time24%
+PositionX=-26
+PositionY=0
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=5
+FixedAlignment=1
+TextColor=FFFFFF
+[Layer3]
+Name=CPU NAME
+Text=%CPUShort%
+PositionX=0
+PositionY=-1
+ExtentX=-14
+ExtentY=-1
+ExtentOrigin=3
+FixedAlignment=1
+TextColor=80FF
+[Layer4]
+Name=CPU TEMP
+Text=%CPU temperature%<S=80> °C<S>
+PositionX=-14
+PositionY=-1
+ExtentX=-6
+ExtentY=-1
+ExtentOrigin=4
+FixedAlignment=1
+[Layer5]
+Name=CPU USAGE
+Text=%CPU usage%<S=80> %<S>
+PositionX=-20
+PositionY=-1
+ExtentX=-6
+ExtentY=-1
+ExtentOrigin=1
+FixedAlignment=1
+[Layer6]
+Name=CPU CLOCK
+Text=%CPU clock%<S=80> MHz<S>
+PositionX=-26
+PositionY=-1
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=5
+FixedAlignment=1
+[Layer7]
+Name=MEMORY
+Text=MEMORY
+PositionX=0
+PositionY=-2
+ExtentX=-14
+ExtentY=-1
+ExtentOrigin=3
+FixedAlignment=1
+TextColor=7ABEFF
+[Layer8]
+Name=RAM USAGE %
+Text=%RAM usage percent%<S=80> %<S>
+PositionX=-20
+PositionY=-2
+ExtentX=-6
+ExtentY=-1
+ExtentOrigin=1
+FixedAlignment=1
+[Layer9]
+Name=RAM USAGE
+Text=%RAM usage%<S=80> GB<S>
+PositionX=-26
+PositionY=-2
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=5
+FixedAlignment=1
+[Layer10]
+Name=
+Text=POWER
+PositionX=0
+PositionY=-3
+ExtentX=-14
+ExtentY=-1
+ExtentOrigin=3
+FixedAlignment=1
+TextColor=7ABEFF
+[Layer11]
+Name=CPU POWER
+Text=%CPU power%<S=80> W<S>
+PositionX=-26
+PositionY=-3
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=5
+FixedAlignment=1
+[Layer12]
+Name=GPU NAME
+Text=%GPU%
+PositionX=0
+PositionY=-4
+ExtentX=-14
+ExtentY=-1
+ExtentOrigin=3
+FixedAlignment=1
+TextColor=FF00
+[Layer13]
+Name=GPU TEMP
+Text=<SWITCH IsGpuHotspotAvailable><CASE 0>%GPU1 temperature%<S=80> °C<S><CASE 1>%GPU1 temperature 2%<S=80> °C<S>
+PositionX=-14
+PositionY=-4
+ExtentX=-6
+ExtentY=-1
+ExtentOrigin=4
+FixedAlignment=1
+[Layer14]
+Name=GPU USAGE
+Text=%GPU1 usage%<S=80> %<S>
+PositionX=-20
+PositionY=-4
+ExtentX=-6
+ExtentY=-1
+ExtentOrigin=4
+FixedAlignment=1
+[Layer15]
+Name=GPU CLOCK
+Text=%GPU1 clock%<S=80> MHz<S>
+PositionX=-26
+PositionY=-4
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=5
+FixedAlignment=1
+[Layer16]
+Name=
+Text=MEMORY
+PositionX=0
+PositionY=-5
+ExtentX=-14
+ExtentY=-1
+ExtentOrigin=3
+FixedAlignment=1
+TextColor=A8FEA8
+[Layer17]
+Name=VRAM USAGE %
+Text=%GPU1 memory usage percent%<S=80> %<S>
+PositionX=-20
+PositionY=-5
+ExtentX=-6
+ExtentY=-1
+ExtentOrigin=4
+FixedAlignment=1
+[Layer18]
+Name=VRAM USAGE
+Text=%GPU1 memory usage%<S=80> GB<S>
+PositionX=-26
+PositionY=-5
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=5
+FixedAlignment=1
+[Layer19]
+Name=
+Text=POWER
+PositionX=0
+PositionY=-6
+ExtentX=-14
+ExtentY=-1
+ExtentOrigin=3
+FixedAlignment=1
+TextColor=A8FEA8
+[Layer20]
+Name=GPU POWER
+Text=%GPU1 power%<S=80> W<S>
+PositionX=-26
+PositionY=-6
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=5
 FixedAlignment=1

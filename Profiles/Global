@@ -35,9 +35,9 @@ SyncDisplay=0
 SyncScanline0=0
 SyncScanline1=0
 SyncPeriods=0
-SyncLimiter=0
+SyncLimiter=3
 PassiveWait=1
-ReflexSleep=0
+ReflexSleep=1
 ReflexSetLatencyMarker=1
 [Hooking]
 EnableHooking=1
@@ -73,5 +73,3 @@ Implementation=2
 Implementation=2
 [RendererVulkan]
 Implementation=2
-[Info]
-Timestamp=19-07-2024, 20:51:45
